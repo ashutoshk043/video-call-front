@@ -1,0 +1,26 @@
+<div class="container-fluid call-container">
+    <div class="row call-row">
+      <!-- Video Call UI Section -->
+      <div [class.col-12]="!isChatOpen" [class.col-9]="isChatOpen" class="call-ui">
+        <h2>Video Call Area</h2>
+      </div>
+  
+      <!-- Chat Box Section -->
+      <div *ngIf="isChatOpen" class="col-3 chat-box">
+        <div class="chat-header">
+          <h5>Chat</h5>
+          <button class="btn-close" (click)="toggleChat()"></button>
+        </div>
+        <div class="chat-content">
+          <!-- Chat content goes here -->
+          <app-chat></app-chat>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Button to open chat when closed -->
+    <button *ngIf="!isChatOpen" class="btn btn-primary open-chat-btn" (click)="toggleChat()">
+      Open Chat
+    </button>
+  </div>
+  

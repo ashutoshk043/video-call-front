@@ -1,0 +1,46 @@
+.call-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .call-row {
+    display: flex;
+    height: 100%;
+  }
+  
+  .call-ui {
+    background-color: #f8f9fa; /* Example background color */
+    transition: width 0.3s ease;
+  }
+  
+  .chat-box {
+    background-color: #ffffff;
+    border-left: 1px solid #ddd;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+  }
+  
+  .chat-header {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chat-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+  }
+  
+  .open-chat-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
