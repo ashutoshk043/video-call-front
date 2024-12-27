@@ -42,7 +42,7 @@ export class SocketService {
   onMessage(callback: (message: string) => void): void {
     console.log('Listening for messages');
     this.ensureConnection(); // Ensure the socket is connected
-    this.socket.on('message', callback); // Listen for 'message' events
+    this.socket.on('message-txfr', callback); // Listen for 'message' events
   }
   disconnect(): void {
     this.socket.disconnect();
