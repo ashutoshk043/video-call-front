@@ -1,6 +1,9 @@
-<ul class="chat-box">
-    <li class="message sender">Hello!</li>
-    <li class="message receiver">Hi there!</li>
-    <li class="message sender">How are you?</li>
-    <li class="message receiver">I’m good, thank you!</li>
-</ul>
+<div>
+    <div *ngFor="let msg of messages">{{ msg }}</div>
+   <input
+    [(ngModel)]="message"
+    placeholder="Type your message here"
+    (keydown.enter)="sendMessage()"
+    />
+   <button (click)="sendMessage()">Send</button>
+</div>
