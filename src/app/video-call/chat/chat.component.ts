@@ -13,20 +13,20 @@ import { FormsModule } from '@angular/forms';
 export class ChatComponent {
   title = 'Socket.IO + Angular Chat';
   message = '';
-  messages: string[] = [];
+  messages: {text: string; sender: 'me' | 'other'}[] = [];
 
   constructor(private socketService: SocketService) {}
 
   ngOnInit(): void {
     this.socketService.onMessage((msg: string) => {
-      this.messages.push(msg);
+      this.messages.push({text: msg, sender: 'other'});
     });
   }
 
   sendMessage(): void {
     if (this.message.trim().length > 0 ) {
       this.socketService.sendMessage(this.message.trim());
-      this.messages.push(this.message.trim());
+      this.messages.push({text: this.message.trim(), sender: 'me'});
       this.message = ''; // Reset message input
     }
   }
