@@ -14,10 +14,12 @@ export class ChatComponent {
   title = 'Socket.IO + Angular Chat';
   message = '';
   messages: {text: string; sender: 'me' | 'other'}[] = [];
+  userCount = 0
 
   constructor(private socketService: SocketService) {}
 
   ngOnInit(): void {
+    
     this.socketService.onMessage((msg: string) => {
       this.messages.push({text: msg, sender: 'other'});
     });

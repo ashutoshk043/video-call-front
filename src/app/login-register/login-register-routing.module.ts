@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CallComponent } from './call/call.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path:'connect',
-    component:CallComponent
+    path:'',
+    component:LoginComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class VideoCallRoutingModule { }
+export class LoginRegisterRoutingModule { }

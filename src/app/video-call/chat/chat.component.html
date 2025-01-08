@@ -2,7 +2,7 @@
     <div class="messages">
       <div
         *ngFor="let msg of messages"
-        [ngClass]="{ 'message-sent': msg.sender === 'me', 'message-received': msg.sender === 'other' }"
+        [ngClass]="{ 'message-sent': msg.sender === 'other', 'message-received': msg.sender ===  'me' }"
       >
         {{ msg.text }}
       </div>

@@ -47,4 +47,9 @@ export class SocketService {
   disconnect(): void {
     this.socket.disconnect();
   }
+
+  onUserCount(callback: (count: number) => void): void {
+    this.ensureConnection();
+    this.socket.on('connectedUser', callback); // Listen for 'connectedUser' events
+  }
 }
