@@ -1,48 +1,44 @@
-/* Make sure the container takes full height of the screen */
 html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
-  /* Ensure the form takes full width on smaller screens */
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-  }
-  
-  /* Form controls and buttons */
-  .form-control, .btn {
-    border-radius: 5px;
-  }
-  
-  /* Center the form horizontally and vertically */
+  height: 100%;
+  margin: 0;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    /* Centers vertically */
+  min-height: 100vh;      /* Full viewport height */
+  background-image: url('../../../assets/images/ng_image.png'); /* Corrected the path */
+  background-size: cover; /* Ensures the image covers the entire background */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+}
+
+
+.row {
+  width: 100%;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional for a better look */
+}
+
+.form-control,
+.btn {
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
   .container {
-    display: flex;
-    justify-content: center;   /* Centers horizontally */
-    align-items: center;       /* Centers vertically */
-    height: 100vh;             /* Full viewport height */
+    padding: 0 15px;
   }
-  
-  .row {
+}
+
+@media (max-width: 576px) {
+  .col-md-6 {
     width: 100%;
   }
-  
-  .card-body {
-    width: 100%;
-  }
-  
-  /* Ensure the card takes up the maximum width on larger screens */
-  @media (max-width: 768px) {
-    .container {
-      padding: 0 15px;
-    }
-  }
-  
-  /* Make the card responsive, taking full width on small screens */
-  @media (max-width: 576px) {
-    .col-md-6 {
-      width: 100%;
-    }
-  }
-  
+}
