@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SocialAuthService, SocialLoginModule, SocialUser,GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { environment } from '../../../environments/environment';
+import { CryptoService } from '../../services/crypto.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -17,8 +18,10 @@ export class LoginComponent {
   showLogin:boolean=true
   user : SocialUser = new SocialUser();
   loggedIn: boolean=false;
+  apiURL = ''
 
-  constructor(private fb: FormBuilder, private authService: SocialAuthService, private httpClient:HttpClient) {
+  constructor(private fb: FormBuilder, private authService: SocialAuthService, private httpClient:HttpClient, private crypto:CryptoService) {
+    this.apiURL = environment.apiUrl
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
@@ -58,9 +61,10 @@ export class LoginComponent {
   }
 
   signInwithGoogle(userDetails:any): void {
-    console.log(userDetails)
-    this.httpClient.post('/api/login-with-google', {userDetails}).subscribe((res:any)=>{
-      console.log(res)
+    const encData = this.crypto.encryptData(userDetails)
+    this.httpClient.post(`${this.apiURL}/api/user/login-google`, {encData}).subscribe((res:any)=>{
+      const responce = this.crypto.decryptData(res.data)
+      console.log(responce, "op isisisi")
     })
   }
 

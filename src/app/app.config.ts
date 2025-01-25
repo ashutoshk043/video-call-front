@@ -26,7 +26,7 @@ export const appConfig: ApplicationConfig = {
           console.error(err);
         }
       } as SocialAuthServiceConfig,
-    }
+    },
   ]
 
 };
