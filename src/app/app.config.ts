@@ -4,6 +4,10 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { GoogleLoginProvider, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {CookieService} from 'ngx-cookie-service';
+import { provideAnimations } from '@angular/platform-browser/animations';
+
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
 
@@ -27,6 +31,10 @@ export const appConfig: ApplicationConfig = {
         }
       } as SocialAuthServiceConfig,
     },
+    CookieService,
+    provideAnimations(),
+    provideToastr(),
+
   ]
 
 };

@@ -2,7 +2,7 @@
     <div class="row call-row">
       <!-- Video Call UI Section -->
       <div [class.col-12]="!isChatOpen" [class.col-9]="isChatOpen" class="call-ui">
-        <h2>Video Call Area</h2>
+        <h2>Welcome {{loginUser}}</h2>
       </div>
   
       <!-- Chat Box Section -->
@@ -25,5 +25,6 @@
     <button *ngIf="!isChatOpen" class="btn btn-primary open-chat-btn" (click)="toggleChat()">
       Open Chat <span>{{unReadChatsCount}}</span>
     </button>
+    
   </div>
   
